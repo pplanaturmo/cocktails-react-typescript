@@ -11,7 +11,7 @@ export default function IndexPage() {
 
     return (
     <>
-    <h1 className="text-6xl font-extrabold">Recetas</h1>
+    <h1 className="text-4xl text-center font-extrabold">Recetas</h1>
       {hasRecipes ?( 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 my-10 gap-10">
         {recipes.drinks.map(drink => (

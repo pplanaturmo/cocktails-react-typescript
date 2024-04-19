@@ -3,6 +3,7 @@ import { DrinkDetails } from "../types";
 
 
 
+
 export type FavoritesSliceType = {
 favorites : DrinkDetails[],
 handleClickFavorite: (recipe : DrinkDetails) => void,
@@ -19,14 +20,20 @@ export const createFavoritesSlice : StateCreator<FavoritesSliceType> = (set,get)
             set((state)=> ({
                 favorites : state.favorites.filter( favorite => favorite.idDrink !== recipe.idDrink)
             }))
-            
+            // createNotificationsSlice(set,get,api).showNotification({
+            //     text:"Se eliminó de favoritos",
+            //     error: false,
+            // })
             
         }else{
             set((state)=> ({
                 favorites: [...state.favorites, recipe],
 
             }))
-          
+            // createNotificationsSlice(set,get,api).showNotification({
+            //     text:"Se agregó a favoritos",
+            //     error: false,
+            // })
             
         }
         

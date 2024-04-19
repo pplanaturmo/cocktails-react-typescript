@@ -10,6 +10,7 @@ export default function Modal() {
     selectedRecipe,
     handleClickFavorite,
     favoriteExists,
+    showNotification,
   } = useAppStore();
 
   const renderIngredients = () => {
@@ -95,7 +96,15 @@ export default function Modal() {
                       type="button"
                       className="w-full rounded bg-green-600 p-3 font-bold uppercase text-white shadow hover:bg-green-500"
                       onClick={() => {
-                        handleClickFavorite(selectedRecipe), closeModal();
+                        favoriteExists(selectedRecipe.idDrink)
+                          ? showNotification({
+                            text:"Se eliminó de favoritos",
+                            error: false,
+                        })
+                          : showNotification({
+                            text:"Se agregó a favoritos",
+                            error: false,
+                        }),handleClickFavorite(selectedRecipe), closeModal()
                       }}
                     >
                       {favoriteExists(selectedRecipe.idDrink)
